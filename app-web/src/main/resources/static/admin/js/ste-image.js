@@ -25,6 +25,7 @@ $("#input-img-icon").change(function() {
 
 $("#input-img-slide").change(function() {
     readURL(this, 'img-slide');
+    readURL(this, 'img-slide');
 });
 
 $("#input-img-avatar").change(function() {

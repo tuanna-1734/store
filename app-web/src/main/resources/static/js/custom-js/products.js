@@ -4,7 +4,6 @@ $(document).ready(function () {
     };
     changePageSize();
     changeSortBy();
-    // onclickAddReview();
 });
 
 function getUrlParamCategory() {
@@ -15,7 +14,6 @@ function getUrlParamCategory() {
     return categoryId;
 
 }
-
 
 
 function changePageSize() {
@@ -102,3 +100,4 @@ function callAjaxAddReview() {
         }
     })
 }
+
