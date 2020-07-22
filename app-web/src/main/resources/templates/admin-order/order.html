@@ -53,7 +53,7 @@
                                     <button th:disabled th:data-id="${item.id}"
                                             th:data-status="1" type="button"
                                             th:classappend="${item.statusNumber == 2 or item.statusNumber == 1 ? 'disabled-change-status': ''}"
-                                            class="btn btn-danger status-cancel change-status"
+                                            class="btn btn-danger status-cancel change-status" style="margin-right: 5px;"
                                     >
                                         Hủy đơn hàng
                                     </button>
@@ -68,10 +68,13 @@
 
                                 </td>
                                 <td>
-                                    <button th:data-id="${item.id}" class="btn btn-info show-detail">Chi tiết đơn hàng
-                                    </button>
-                                    <a th:href="@{/admin/api/report/download/order.xlsx/{id}(id=${item.id})}" class="btn btn-info">Xuất hóa đơn
-                                    </a>
+                                    <div style="display: flex" >
+                                        <button  th:data-id="${item.id}" class="btn btn-info show-detail" style="margin-right: 5px;">Chi tiết đơn hàng
+                                        </button>
+                                        <a th:href="@{/admin/api/report/download/order.xlsx/{id}(id=${item.id})}" class="btn btn-info">Xuất hóa đơn
+                                        </a>
+                                    </div>
+
                                 </td>
                             </tr>
                         </th:block>

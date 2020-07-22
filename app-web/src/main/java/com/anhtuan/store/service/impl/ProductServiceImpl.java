@@ -155,7 +155,7 @@ ProductServiceImpl implements ProductService {
             condition.and(productEntity.status.eq(dto.getStatus()));
         }
         condition.and(productEntity.deleteFlag.eq(StatusType.NOT_DELETE.getVal()));
-        List<ProductEntity> entities = (List<ProductEntity>) productRepository.findAll(condition, Sort.by( Sort.Direction.DESC, "updatedAt", "id"));
+        List<ProductEntity> entities = (List<ProductEntity>) productRepository.findAll(condition, Sort.by(Sort.Direction.DESC, "updatedAt", "id"));
         return entities.stream().map(entity -> commonService.transformProductEntityToDto(entity)).collect(Collectors.toList());
     }
 
@@ -184,7 +184,8 @@ ProductServiceImpl implements ProductService {
             DiscountEntity discountEntity = discountRepository.findByIdAndDeleteFlag(dto.getDiscountId(), DeleteFlag.NOT_DELETE.getVal());
             productEntity.setDiscount(discountEntity);
         }
-        String imageName = saveImageToFolder(dto.getFileImage());
+//        String imageName = saveImageToFolder(dto.getFileImage());
+        String imageName = dto.getImageUrl();
         productEntity.setImageUrl(imageName);
         productRepository.save(productEntity);
     }
@@ -228,13 +229,13 @@ ProductServiceImpl implements ProductService {
             }
         }
         String imageName = dto.getImageUrl();
-        try {
-            if (!dto.getFileImage().isEmpty()) {
-                imageName = saveImageToFolder(dto.getFileImage());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            if (!dto.getFileImage().isEmpty()) {
+//                imageName = saveImageToFolder(dto.getFileImage());
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         productEntity.setImageUrl(imageName);
         productRepository.save(productEntity);
 

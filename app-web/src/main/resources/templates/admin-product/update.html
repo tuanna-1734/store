@@ -87,10 +87,10 @@
                         <div class="show-image" id="img-pro-0">
                             <div class="form-group row">
                                 <input type="file" th:field="*{fileImage}" class="form-control-sm input-img-pro" id="input-img-pro-0">
+                                <input hidden th:name="imageUrl" class="image-url" th:value="${productDto.imageUrl}">
                             </div>
-                            <input th:field="*{imageUrl}" hidden>
                             <div class="form-group row display-img">
-                                <img class="size-img-pro" id="img-show-pro-0" th:src="@{'/images/product/' + ${productDto.imageUrl}}">
+                                <img class="size-img-pro" id="img-show-pro-0" th:src="${productDto.imageUrl}">
                             </div>
                         </div>
                     </div>
@@ -110,6 +110,7 @@
 <div layout:fragment="footer">
     <div th:replace="fragments/partials/footer :: jquery-tmpl"></div>
     <script th:src="@{/admin/js/ckeditor/ckeditor.js}"></script>
+    <script th:src="@{/admin/js/admin-product-create.js}"></script>
     <script>
         CKEDITOR.replace( 'editor', {
             filebrowserBrowseUrl: '/admin/ckfinder/ckfinder.html',

@@ -54,10 +54,11 @@
 
 .disabled-change-status{
     pointer-events: none;
+    cursor: default;
 }
 .style-success{
-    background-color: lightgreen;
+    background-color: white;
 }
 .style-cancel{
-    background-color:  lightgray
+    background-color: #d3d3d3
 }

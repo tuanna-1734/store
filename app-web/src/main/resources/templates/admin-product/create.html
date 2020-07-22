@@ -92,6 +92,7 @@
                             <div class="form-group row">
                                 <input type="file" th:field="*{fileImage}" class="form-control-sm input-img-pro"
                                        id="input-img-pro-0" required>
+                                <input hidden th:name="imageUrl" class="image-url">
                             </div>
                             <div class="form-group row display-img">
                                 <img class="size-img-pro" id="img-show-pro-0">
@@ -114,6 +115,7 @@
 <div layout:fragment="footer">
     <div th:replace="fragments/partials/footer :: jquery-tmpl"></div>
     <script th:src="@{/admin/js/ckeditor/ckeditor.js}"></script>
+    <script th:src="@{/admin/js/admin-product-create.js}"></script>
     <script>
         CKEDITOR.replace('editor', {
             filebrowserBrowseUrl: '/admin/ckfinder/ckfinder.html',
